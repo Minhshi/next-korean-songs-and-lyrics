@@ -1,20 +1,8 @@
 import Layout from '../components/Layout';
 import Link from 'next/link';
+import songs from './songs';
 
 export default function Index() {
-  function getSongs() {
-    return [
-      {
-        id: 'first-song',
-        title: 'first-song',
-      },
-      {
-        id: 'second-song',
-        title: 'second-song',
-      },
-    ];
-  }
-
   const SongLink = ({ song }) => (
     <li>
       <Link href='/s/[id]' as={`/s/${song.id}`}>
@@ -44,7 +32,7 @@ export default function Index() {
       <Layout>
         <h3>Songs</h3>
         <ul>
-          {getSongs().map(song => (
+          {songs.map(song => (
             <SongLink key={song.id} song={song} />
           ))}
         </ul>{' '}
